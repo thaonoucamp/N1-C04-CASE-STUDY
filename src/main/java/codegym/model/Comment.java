@@ -1,6 +1,7 @@
 package codegym.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Comment {
@@ -13,18 +14,14 @@ public class Comment {
     @OneToOne
     private User user;
 
-    @ManyToOne
-    private Like likes;
-
     public Comment() {
     }
 
-    public Comment(Long id, String content, Long quantity, User user, Like likes) {
+    public Comment(Long id, String content, Long quantity, User user) {
         this.id = id;
         this.content = content;
         this.quantity = quantity;
         this.user = user;
-        this.likes = likes;
     }
 
     public Long getId() {
@@ -59,11 +56,4 @@ public class Comment {
         this.user = user;
     }
 
-    public Like getLikes() {
-        return likes;
-    }
-
-    public void setLikes(Like likes) {
-        this.likes = likes;
-    }
 }

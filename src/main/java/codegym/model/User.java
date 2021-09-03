@@ -1,6 +1,7 @@
 package codegym.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -14,13 +15,13 @@ public class User {
     private String password;
     private String userName;
 
-    @OneToMany
-    private Role roles;
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Role> roles;
 
     public User() {
     }
 
-    public User(Long id, String fullName, String telephone, String address, String email, String password, String userName, Role roles) {
+    public User(Long id, String fullName, String telephone, String address, String email, String password, String userName, List<Role> roles) {
         this.id = id;
         this.fullName = fullName;
         this.telephone = telephone;
@@ -87,11 +88,11 @@ public class User {
         this.userName = userName;
     }
 
-    public Role getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Role roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 }

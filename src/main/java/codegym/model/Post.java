@@ -2,6 +2,7 @@ package codegym.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -17,15 +18,15 @@ public class Post {
     private User user;
 
     @OneToMany
-    private Like likes;
+    private List<Like> likes;
 
     @OneToMany
-    private Comment comments;
+    private List<Comment> comments;
 
     public Post() {
     }
 
-    public Post(Long id, String title, String content, String status, Date dateTime, User user, Like likes, Comment comments) {
+    public Post(Long id, String title, String content, String status, Date dateTime, User user, List<Like> likes, List<Comment> comments) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -84,19 +85,19 @@ public class Post {
         this.user = user;
     }
 
-    public Like getLikes() {
+    public List<Like> getLikes() {
         return likes;
     }
 
-    public void setLikes(Like likes) {
+    public void setLikes(List<Like> likes) {
         this.likes = likes;
     }
 
-    public Comment getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Comment comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 }
