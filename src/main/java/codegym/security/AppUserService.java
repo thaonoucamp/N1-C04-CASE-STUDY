@@ -1,6 +1,5 @@
-package codegym.service;
+package codegym.security;
 
-import codegym.model.AppUser;
 import codegym.repository.IAppUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,7 +21,7 @@ public class AppUserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AppUser user = iAppUserRepo.findByUsername(username);
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(user.getRole());
+        authorities.add((GrantedAuthority) user.getRoles());
 
         UserDetails userDetails = new User(
                 user.getUsername(),

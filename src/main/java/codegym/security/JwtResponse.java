@@ -1,4 +1,4 @@
-package codegym.model;
+package codegym.security;
 
 import org.springframework.security.core.GrantedAuthority;
 

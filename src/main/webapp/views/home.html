@@ -3,8 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #header {
+            position: fixed;
+            height: 100px;
+            width: 100%;
+            border: 1px solid red;
+            top: 0;
+            left: 0;
+            padding: 35px;
+        }
+
+        #body{
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            left: 0;
+        }
+
+        #footer {
+            position: fixed;
+            height: 100px;
+            width: 100%;
+            bottom: 0;
+            clear: both;
+            border: 1px solid red;
+            left: 0;
+        }
+
+        .home {
+            width: 8.33%;
+            float: left;
+        }
+
+        .menu {
+            width: 8.33%;
+            float: left;
+        }
+
+        .login {
+            width: 8.33%;
+            float: left;
+        }
+
+        .search {
+            width: 41.65%;
+            float: left;
+        }
+
+        .log-out {
+            width: 8.33%;
+            float: left;
+        }
+
+        .my-page {
+            width: 8.33%;
+            float: right;
+        }
+
+        .relationships{
+            width: 16.66%;
+            height: 590px;
+            float: left;
+            border: 1px solid red;
+        }
+
+        .content{
+            width: 66.64%;
+            height: 590px;
+            float: left;
+            border: 1px solid red;
+        }
+
+        .message{
+            width: 16.66%;
+            height: 590px;
+            float: left;
+            border: 1px solid red;
+        }
+
+    </style>
 </head>
 <body>
+<!-- 1. Header -->
+<div id="header" class="headers" align="center">
+    <div class="1">
+        <div class="home">
+            <a href="">HOME</a>
+        </div>
+        <div class="menu">
+            <select name="" id="">
+                <option value=""><a href="">Menu</a></option>
+                <option value=""><a href="">1</a></option>
+                <option value=""><a href="">2</a></option>
+                <option value=""><a href="">3</a></option>
+            </select>
+        </div>
+        <div class="login">
+            <a href="">Login</a>
+        </div>
+        <div class="search">
+            <input type="text">
+            <a href="">Search</a>
+        </div>
+        <div class="log-out">
+            <a href="">Logout</a>
+        </div>
+        <div class="my-page">
+            <a href="">TRANG CA NHAN</a>
+        </div>
+    </div>
+</div>
 
+<div id="body">
+    <!-- 2. DS ban be -->
+<div id="left-bar">
+    <div class="relationships">
+        <a href="">DANH SACH BAN BE</a>
+    </div>
+</div>
+
+<!-- 3. Content -->
+<div id="main">
+    <div class="content" align="center">
+        <a href="">CONTENT</a>
+    </div>
+</div>
+
+<!-- 4. Message -->
+<div id="right-bar">
+    <div class="message" align="center">
+        <a href="">Message</a>
+    </div>
+</div>
+</div>
+
+<!-- 5. Lien he -->
+<div id="footer">
+    <div align="center">
+        <a href="">WEBSITE</a>
+    </div>
+    <br>
+    <div align="center">
+        <a href="">FACEBOOK</a>
+    </div>
+    <br>
+    <div align="center">
+        <a href="">TELEPHONE</a>
+    </div>
+</div>
 </body>
 </html>

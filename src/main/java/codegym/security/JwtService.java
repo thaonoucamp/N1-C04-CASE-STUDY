@@ -1,4 +1,4 @@
-package codegym.service;
+package codegym.security;
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;

@@ -2,6 +2,7 @@ package codegym.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -11,14 +12,18 @@ public class Post {
     private Long id;
     private String title;
     private String content;
+    private String fileUpload;
     private String status;
-    private Date dateTime;
+    private LocalDate dateTime;
 
-    @OneToOne
+    @ManyToOne
     private User user;
 
     @OneToMany
     private List<Like> likes;
+
+    @OneToMany
+    private List<FileUpload> filePath;
 
     @OneToMany
     private List<Comment> comments;
@@ -26,14 +31,16 @@ public class Post {
     public Post() {
     }
 
-    public Post(Long id, String title, String content, String status, Date dateTime, User user, List<Like> likes, List<Comment> comments) {
+    public Post(Long id, String title, String content, String fileUpload, String status, LocalDate dateTime, User user, List<Like> likes, List<FileUpload> filePath, List<Comment> comments) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.fileUpload = fileUpload;
         this.status = status;
         this.dateTime = dateTime;
         this.user = user;
         this.likes = likes;
+        this.filePath = filePath;
         this.comments = comments;
     }
 
@@ -69,11 +76,11 @@ public class Post {
         this.status = status;
     }
 
-    public Date getDateTime() {
+    public LocalDate getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Date dateTime) {
+    public void setDateTime(LocalDate dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -99,5 +106,21 @@ public class Post {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public String getFileUpload() {
+        return fileUpload;
+    }
+
+    public void setFileUpload(String fileUpload) {
+        this.fileUpload = fileUpload;
+    }
+
+    public List<FileUpload> getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(List<FileUpload> filePath) {
+        this.filePath = filePath;
     }
 }

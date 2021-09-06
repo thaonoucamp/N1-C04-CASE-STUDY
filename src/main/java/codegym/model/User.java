@@ -1,6 +1,7 @@
 package codegym.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -8,12 +9,20 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fullName;
+    private String name;
+    private String gender;
+    private LocalDate birthday;
+
+    @OneToMany
+    private List<FileUpload> avatar;
     private String telephone;
     private String address;
     private String email;
     private String password;
     private String userName;
+
+    @ManyToMany
+    private List<User> friends;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
@@ -21,14 +30,18 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String fullName, String telephone, String address, String email, String password, String userName, List<Role> roles) {
+    public User(Long id, String name, String gender, LocalDate birthday, List<FileUpload> avatar, String telephone, String address, String email, String password, String userName, List<User> friends, List<Role> roles) {
         this.id = id;
-        this.fullName = fullName;
+        this.name = name;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.avatar = avatar;
         this.telephone = telephone;
         this.address = address;
         this.email = email;
         this.password = password;
         this.userName = userName;
+        this.friends = friends;
         this.roles = roles;
     }
 
@@ -40,12 +53,12 @@ public class User {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTelephone() {
@@ -94,5 +107,38 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public List<FileUpload> getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(List<FileUpload> avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+
+    public List<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<User> friends) {
+        this.friends = friends;
     }
 }

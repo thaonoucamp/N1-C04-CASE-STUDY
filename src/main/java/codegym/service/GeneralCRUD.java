@@ -1,9 +1,8 @@
 package codegym.service;
 
-import java.util.List;
 
 public interface GeneralCRUD<T> {
-    List<T> findAll();
+    Iterable<T> findAll();
 
     T findById(Long id);
 
